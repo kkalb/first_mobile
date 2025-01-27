@@ -1,16 +1,12 @@
-import { Stack } from 'expo-router';
-
-import { Welcome } from '@/templates/Welcome';
+import { Link } from 'expo-router';
+import { View } from 'react-native';
 
 const Home = () => (
-  <>
-    <Stack.Screen
-      options={{
-        title: 'Kalorienzähler',
-      }}
-    />
-    <Welcome />
-  </>
+  <View>
+    <Link href="/about" className="font-normal text-white underline">
+      Go to About screen
+    </Link>
+  </View>
 );
 
 export default Home;

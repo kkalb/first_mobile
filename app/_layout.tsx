@@ -6,5 +6,21 @@ NativeWindStyleSheet.setOutput({
 });
 
 export default function Layout() {
-  return <Stack />;
+  return (
+    <Stack>
+      <Stack.Screen
+        name="index"
+        options={{
+          headerTitle: 'Kalorienzähler',
+        }}
+      />
+
+      <Stack.Screen
+        name="about"
+        options={{
+          headerTitle: 'About',
+        }}
+      />
+    </Stack>
+  );
 }
