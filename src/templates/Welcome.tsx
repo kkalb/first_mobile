@@ -1,8 +1,10 @@
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
+
+import { WeekBar } from './WeekBar';
 
 const Welcome = () => (
-  <View className="flex-1 items-center justify-center">
-    <Text>Open up App/ to start working on your app!</Text>
+  <View className="bg-new-blue">
+    <WeekBar />
   </View>
 );
 

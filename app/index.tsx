@@ -6,7 +6,7 @@ const Home = () => (
   <>
     <Stack.Screen
       options={{
-        title: 'My home',
+        title: 'Kalorienzähler',
       }}
     />
     <Welcome />
