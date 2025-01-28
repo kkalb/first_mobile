@@ -11,6 +11,7 @@ interface TextProps {
 const WeekButton = ({ text }: TextProps) => (
   <View className="h-8 w-10 rounded-md border border-new-blue">
     <Button
+      testID={`button${text}`}
       onPress={() => {
         onPress();
       }}

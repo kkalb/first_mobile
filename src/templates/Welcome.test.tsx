@@ -4,11 +4,11 @@ import { Welcome } from './Welcome';
 
 describe('App component', () => {
   describe('Render method', () => {
-    it('should render the default text', () => {
+    it('should render the first button', () => {
       render(<Welcome />);
 
-      const text = screen.queryByText(/Open up App\//);
-      expect(text).toBeVisible();
+      const buttonMO = screen.getByTestId('buttonMO');
+      expect(buttonMO).toBeVisible();
     });
   });
 });

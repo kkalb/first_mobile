@@ -1,26 +1,19 @@
-import { Stack } from 'expo-router';
+import { Stack } from 'expo-router/stack';
 import { NativeWindStyleSheet } from 'nativewind';
 
 NativeWindStyleSheet.setOutput({
   default: 'native',
 });
 
-export default function Layout() {
+export default function RootLayout() {
   return (
-    <Stack>
-      <Stack.Screen
-        name="index"
-        options={{
-          headerTitle: 'Kalorienzähler',
-        }}
-      />
-
-      <Stack.Screen
-        name="about"
-        options={{
-          headerTitle: 'About',
-        }}
-      />
+    <Stack
+      initialRouteName="(tabs)"
+      screenOptions={{
+        headerShadowVisible: false,
+      }}
+    >
+      <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
     </Stack>
   );
 }
