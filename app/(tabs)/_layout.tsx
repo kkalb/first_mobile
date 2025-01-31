@@ -28,10 +28,10 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="about"
+        name="settings"
         options={{
-          title: 'About',
-          tabBarIcon: () => tabBarIcon('info-circle'),
+          title: 'Settings',
+          tabBarIcon: () => tabBarIcon('cog'),
         }}
       />
     </Tabs>

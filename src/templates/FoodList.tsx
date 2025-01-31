@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { FlatList, StyleSheet, Text, View } from 'react-native';
 
-interface Food {
+export interface Food {
   food_id: number;
   brand_name: string;
   food_name: string;
