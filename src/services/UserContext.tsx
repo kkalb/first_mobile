@@ -1,3 +1,4 @@
+import moment from 'moment';
 import type { Dispatch, ReactNode } from 'react';
 import { createContext, useContext, useMemo, useReducer } from 'react';
 
@@ -6,6 +7,7 @@ export interface Token {
   expires_in: number;
   token_type: string;
   scope: string;
+  expires_at: moment.Moment;
 }
 
 interface UserState {
@@ -28,7 +30,13 @@ interface UserContextType {
 
 const initialState: UserState = {
   user: {
-    token: { access_token: '', expires_in: 0, token_type: '', scope: '' },
+    token: {
+      access_token: '',
+      expires_in: 0,
+      token_type: '',
+      scope: '',
+      expires_at: moment(),
+    },
   },
 };
 
@@ -42,9 +50,19 @@ const userReducer = (state: any, action: any) => {
     case 'GET_USER':
       console.log(`getting user: ${state.user}`);
       return state;
-    case 'SET_TOKEN':
-      console.log(`setting token to: ${JSON.stringify(action.payload.token)}`);
-      return { ...state, user: { ...state.user, token: action.payload.token } };
+    case 'SET_TOKEN': {
+      const expirationDateTimeUTC = moment()
+        .add(action.payload.token.expires_in, 'seconds')
+        .format('YYYY-MM-DD HH:mm:ss');
+
+      const updatedToken = {
+        ...action.payload.token,
+        expires_at: expirationDateTimeUTC,
+      };
+
+      console.log(`setting token to: ${JSON.stringify(updatedToken)}`);
+      return { ...state, user: { ...state.user, token: updatedToken } };
+    }
     default:
       return state;
   }

@@ -63,8 +63,8 @@ const searchFood = async (
     const json = await response.json();
     return json;
   } catch (error) {
-    // console.error('getToken');
-    // console.error(error);
+    console.error('getToken');
+    console.error(error);
     return '';
   }
 };

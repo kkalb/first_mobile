@@ -1,5 +1,4 @@
-import { memo } from 'react';
-import { FlatList, StyleSheet, Text, View } from 'react-native';
+import { FlatList, Text, View } from 'react-native';
 
 export interface Food {
   food_id: number;
@@ -13,13 +12,13 @@ interface FoodsProps {
   foods: Food[];
 }
 
-const ListHeader = memo(() => (
-  <View className="mb-6 space-y-4 bg-gray-100 p-4 text-center">
-    <Text className="text-3xl font-bold text-gray-900">
-      Welcome to the Food List!
-    </Text>
-  </View>
-));
+// const ListHeader = memo(() => (
+//   <View className="mb-6 space-y-4 bg-gray-100 p-4 text-center">
+//     <Text className="text-3xl font-bold text-gray-900">
+//       Welcome to the Food List!
+//     </Text>
+//   </View>
+// ));
 
 const FoodList = ({ foods }: FoodsProps) => {
   const renderItem = ({ item }: any) => (
@@ -37,20 +36,13 @@ const FoodList = ({ foods }: FoodsProps) => {
     </View>
   );
 
-  const styles = StyleSheet.create({
-    listContainer: {
-      padding: 16,
-      paddingBottom: 100, // Padding for the bottom, if needed for safe areas
-    },
-  });
-
   return (
     <FlatList
-      ListHeaderComponent={ListHeader}
+      // ListHeaderComponent={ListHeader}
       data={foods}
       renderItem={renderItem}
       keyExtractor={(item) => item.food_id.toString()}
-      contentContainerStyle={styles.listContainer}
+      contentContainerStyle={{ padding: 16, paddingBottom: 100 }}
     />
   );
 };

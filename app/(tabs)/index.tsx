@@ -21,12 +21,12 @@ const Index = () => {
 
   const onSearchHandler = async () => {
     const result = await searchFood(searchText, access_token);
+    console.log(JSON.stringify(result, null, 2));
     setSearchResults(result.foods.food);
-    // console.log(JSON.stringify(result, null, 2));
   };
 
   return (
-    <View className="flex-1 items-center justify-start">
+    <View className="m-2 flex-1 items-center justify-start">
       <SearchBar
         onSearchPress={onSearchHandler}
         onChangeText={onChangeHandler}
